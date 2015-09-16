@@ -30,3 +30,60 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% DIA 5: SCRIPTS E FUNÇÕES %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% 5.2 Comentários
+
+% essa linha nao é executada pelo interpretador.
+% nem essa.
+
+%%% 5.3 Bloco de comentários
+
+%{
+todas essas linhas nao serao interpretadas:
+- essa nao.
+- essa tambem nao.
+- nem essa.
+- nem essa ainda.
+%}
+
+%%% 5.4 Funções
+
+%% função deltaquadratica().
+function delta = deltaquadratica(vala,valb,valc)
+    %{
+    DELTAQUADRATICA recebe os coeficientes A, B e C
+    (vala, valb e valc) de uma equacao quadratica e
+    retorna seu discriminante (delta).
+    %}
+
+    delta = valb^2-4*vala*valc;
+end
+
+%% função deltacubica().
+function delta = deltacubica(vala,valb,valc,vald)
+    %{
+    DELTACUBICA recebe os coeficientes A, B, C e D (vala,
+    valb, valc e vald) de uma equacao cubica e retorna
+    seu discriminante (delta).
+    %}
+
+    delta = 18*vala*valb*valc*vald ...
+    -4*valb^3*vald+valb^2*valc^2 ...
+    -4*vala*valc^3-27*vala^2*vald^2;
+end
+
+%% função infocone().
+function [area_lat,area_sup,vol] = infocone(raio,altura)
+    %{
+    INFOCONE recebe raio e altura de um cone e retorna sua
+    area lateral (area_lat), area da superficie (area_sup) e
+    volume (vol).
+    %}
+
+    area_lat = pi*raio*sqrt(altura^2+raio^2);
+    disp(’A area lateral do cone e ’); disp(area_lat);
+    area_sup = pi*raio*(raio+sqrt(altura^2+raio^2));
+    disp(’A area da superficie do cone e ’); disp(area_sup);
+    vol = pi*raio^2*(altura/3);
+    disp(’O volume do cone e ’); disp(vol);
+end
