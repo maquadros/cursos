@@ -36,7 +36,7 @@
 a = 2^2
 b = 3^2
 a == b
-a != b
+a != b  % no MATLAB, a ~= b
 a < 4
 sqrt(9) <= b
 a > 10.^b
@@ -63,6 +63,22 @@ else
     disp('Pode tudo brother! Menos beber e dirigir!')
 end
 
+% Exemplo em sala.
+function testaintervalo(num)
+    if num < 1 && num > -1
+        if num < 0.5 && num > -0.5
+            if num < 0.25 && num > -0.25
+                disp('Num está entre -1/4 e 1/4');
+            else
+                disp('Num está entre -1/2 e 1/2');
+            end
+        else
+            disp('Num está entre -1 e 1');
+        end
+    else
+        disp('Num não está no intervalo!')
+    end
+end
 
 %% switch.
 idade = input('Digite sua idade: ');
@@ -75,11 +91,27 @@ switch idade
         disp('Pode tudo brother! Menos beber e dirigir!')
 end
 
+% Exemplo em sala.
+function testaintswitch(num)
+    switch num
+        case(num2cell([-25:25]))
+            disp('Num está entre -25 e 25')
+        case(num2cell([-50:50]))
+            disp('Num está entre -50 e 50')
+        case(num2cell([-100:100]))
+            disp('Num está entre -100 e 100')
+        case(300)
+            disp('THIS IS SPARTAAAAAAA')
+        otherwise
+            disp('Num não está no intervalo!')
+    end
+end
+
 %% 6.4 Estruturas de repetição
 
 %% for.
-fibo = ones(1, 20);
-for termo = 3:num_termos
+fibo = ones(1, 30);
+for termo = 3:numel(fibo)
     fibo(termo) = fibo(termo-1) + fibo(termo-2);
 end
 
@@ -92,3 +124,5 @@ while (iter != term)
     iter++
 end
 
+%% Usuários de GNU Octave: procurem a estrutura
+%% do-until
